@@ -22,43 +22,43 @@ const wktimess = 1200; //周奖励领取标准，默认1200分钟
 const qqreadurlVal = "https://mqqapi.reader.qq.com/mqq/user/init";
 let qqreadheaderVal, qqreadtimeurlVal, qqreadtimeheaderVal;
 const cookiesArr = [
-  {
-    qqreadheaderVal: JSON.stringify({
-      //change ywsession
-      ywsession: "f11iwnsbql9gtf5p5urfrz8zq6gz9d2q",
-      //change Cookie
-      Cookie:
-        "ywguid=849750445;ywkey=ywDqKlQhxZlC;platform=android;channel=mqqmina;mpVersion=0.30.0",
-      Connection: "keep-alive",
-      "Content-Type": "application/json",
-      Accept: "*/*",
-      Host: "mqqapi.reader.qq.com",
-      "User-Agent": "Mozilla/5.0 (Linux; Android 9; G8142 Build/47.2.A.10.107; wv)",
-      Referer: "https://appservice.qq.com/1110657249/0.30.0/page-frame.html",
-      "Accept-Language": "zh-cn",
-      "Accept-Encoding": "gzip, deflate, br",
-      mpversion: "0.30.0",
-    }),
-    //chage qqreadtimeurlVal
-    qqreadtimeurlVal:
-      "https://mqqapi.reader.qq.com/mqq/addReadTimeWithBid?scene=2016&refer=-1&bid=27693007&readTime=3374&read_type=0&conttype=1&read_status=0&chapter_info=%5B%7B%221%22%3A%7B%22readTime%22%3A3374%2C%22pay_status%22%3A0%7D%7D%5D&sp=-1",
-    qqreadtimeheaderVal: JSON.stringify({
-      //change ywsession
-      ywsession: "f11iwnsbql9gtf5p5urfrz8zq6gz9d2q",
-      //change Cookie
-      Cookie:
-        "ywguid=849750445;ywkey=ywDqKlQhxZlC;platform=android;channel=mqqmina;mpVersion=0.30.0;qq_ver=8.2.10;os_ver=Android 9;mpos_ver=1.12.1;platform=android;openid=B33C362598DB82E3D16E11F0819B224B",
-      Connection: "keep-alive",
-      "Content-Type": "application/json",
-      Accept: "*/*",
-      Host: "mqqapi.reader.qq.com",
-      "User-Agent": "Mozilla/5.0 (Linux; Android 9; G8142 Build/47.2.A.10.107; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/84.0.4147.89 Mobile Safari/537.36 QQ/MiniApp QQ/8.2.10_GM",
-      Referer: "https://appservice.qq.com/1110657249/0.30.0/page-frame.html",
-      "Accept-Language": "zh-cn",
-      "Accept-Encoding": "gzip, deflate, br",
-      mpversion: "0.30.0",
-    }),
-  },
+//   {
+//     qqreadheaderVal: JSON.stringify({
+//       //change ywsession
+//       ywsession: "f11iwnsbql9gtf5p5urfrz8zq6gz9d2q",
+//       //change Cookie
+//       Cookie:
+//         "ywguid=849750445;ywkey=ywDqKlQhxZlC;platform=android;channel=mqqmina;mpVersion=0.30.0",
+//       Connection: "keep-alive",
+//       "Content-Type": "application/json",
+//       Accept: "*/*",
+//       Host: "mqqapi.reader.qq.com",
+//       "User-Agent": "Mozilla/5.0 (Linux; Android 9; G8142 Build/47.2.A.10.107; wv)",
+//       Referer: "https://appservice.qq.com/1110657249/0.30.0/page-frame.html",
+//       "Accept-Language": "zh-cn",
+//       "Accept-Encoding": "gzip, deflate, br",
+//       mpversion: "0.30.0",
+//     }),
+//     //chage qqreadtimeurlVal
+//     qqreadtimeurlVal:
+//       "https://mqqapi.reader.qq.com/mqq/addReadTimeWithBid?scene=2016&refer=-1&bid=27693007&readTime=3374&read_type=0&conttype=1&read_status=0&chapter_info=%5B%7B%221%22%3A%7B%22readTime%22%3A3374%2C%22pay_status%22%3A0%7D%7D%5D&sp=-1",
+//     qqreadtimeheaderVal: JSON.stringify({
+//       //change ywsession
+//       ywsession: "f11iwnsbql9gtf5p5urfrz8zq6gz9d2q",
+//       //change Cookie
+//       Cookie:
+//         "ywguid=849750445;ywkey=ywDqKlQhxZlC;platform=android;channel=mqqmina;mpVersion=0.30.0;qq_ver=8.2.10;os_ver=Android 9;mpos_ver=1.12.1;platform=android;openid=B33C362598DB82E3D16E11F0819B224B",
+//       Connection: "keep-alive",
+//       "Content-Type": "application/json",
+//       Accept: "*/*",
+//       Host: "mqqapi.reader.qq.com",
+//       "User-Agent": "Mozilla/5.0 (Linux; Android 9; G8142 Build/47.2.A.10.107; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/84.0.4147.89 Mobile Safari/537.36 QQ/MiniApp QQ/8.2.10_GM",
+//       Referer: "https://appservice.qq.com/1110657249/0.30.0/page-frame.html",
+//       "Accept-Language": "zh-cn",
+//       "Accept-Encoding": "gzip, deflate, br",
+//       mpversion: "0.30.0",
+//     }),
+//   },
   {
     qqreadheaderVal: JSON.stringify({
       ywsession: "xvwazo907my3652hlpe6gsnu7gkf8wij",

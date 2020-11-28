@@ -25,42 +25,22 @@ const cookiesArr = [];
 
 // catch value from Action Secret.
 let headers = [], timeurls = [], timeheaders = [];
-let SecretHeaders = [], SecretTimeUrls = [], SecretTimeHeaders = [];
 
 if (process.env.QQREAD_HEADER && process.env.QQREAD_HEADER.indexOf('#') > -1) {
-  SecretHeaders = process.env.QQREAD_HEADER.split('#');
+  headers = process.env.QQREAD_HEADER.split('#');
 } else {
-  SecretHeaders = process.env.QQREAD_HEADER.split();
+  headers = process.env.QQREAD_HEADER.split();
   };
 if (process.env.QQREAD_TIMEURL && process.env.QQREAD_TIMEURL.indexOf('\n') > -1) {
-  SecretTimeUrls = process.env.QQREAD_TIMEURL.split('\n');
+  timeurls = process.env.QQREAD_TIMEURL.split('\n');
 } else {
-  SecretTimeUrls = process.env.QQREAD_TIMEURL.split();
+  timeurls = process.env.QQREAD_TIMEURL.split();
   };
 if (process.env.QQREAD_TIMEHEADER && process.env.QQREAD_TIMEHEADER.indexOf('#') > -1) {
-  SecretTimeHeaders = process.env.QQREAD_TIMEHEADER.split('#');
+  timeheaders = process.env.QQREAD_TIMEHEADER.split('#');
 } else {
-  SecretTimeHeaders = process.env.QQREAD_TIMEHEADER.split();
+  timeheaders = process.env.QQREAD_TIMEHEADER.split();
   };
- 
-Object.keys(SecretHeaders).forEach((item) => {
-    if (SecretHeaders[item]) {
-      headers.push(SecretHeaders[item])
-    }
-  })
-Object.keys(SecretTimeUrls).forEach((item) => {
-    if (SecretTimeUrls[item]) {
-      timeurls.push(SecretTimeUrls[item])
-    }
-  })
-Object.keys(SecretTimeHeaders).forEach((item) => {
-    if (SecretTimeHeaders[item]) {
-      timeheaders.push(SecretTimeHeaders[item])
-    }
-  })
-
-console.log(SecretHeaders);
-console.log(headers);
 
 for (let index = 0; index < headers.length; index++) {
   const json_temp = {qqreadheaderVal:"", qqreadtimeurlVal:"", qqreadtimeheaderVal:""};
@@ -69,8 +49,6 @@ for (let index = 0; index < headers.length; index++) {
   json_temp.qqreadtimeheaderVal = timeheaders[index];
   cookiesArr.push(json_temp);
 }
-
-console.log(cookiesArr);
 
 var tz = "";
 let num = 0;

@@ -8,7 +8,7 @@ const jsname = "企鹅读书";
 const $ = Env(jsname);
 
 const logs = 0; //0为关闭日志，1为开启
-const notifyInterval = 1;
+const notifyInterval = 2;
 //0为关闭通知，1为所有通知，2为宝箱领取成功通知，3为宝箱每18次通知一次
 
 const dd = 1; //单次任务延迟,默认1秒
@@ -550,16 +550,10 @@ function showmsg() {
   tz += `\n脚本执行：${new Date().toLocaleString()}\n\n`;
   if (notifyInterval == 1) $.msg(jsname, "", tz);
   //显示所有通知
-  else if (notifyInterval == 2 && box.data.amount >= 0) $.msg(jsname, "", tz);
+  else if (notifyInterval == 2 && task.data.treasureBox.doneFlag==0) $.msg(jsname, "", tz);
   //宝箱领取成功通知
-  else if (
-    (notifyInterval == 3 && box.data.count == 0) ||
-    box.data.count == 18 ||
-    box.data.count == 36 ||
-    box.data.count == 54 ||
-    box.data.count == 72
-  )
-    $.msg(jsname, "", tz); //宝箱每18次通知一次
+  else if (notifyInterval==3&&task.data.treasureBox.count==0||task.data.treasureBox.count==15||task.data.treasureBox.count==30||task.data.treasureBox.count==45||task.data.treasureBox.count==60)
+    $.msg(jsname, "", tz); //宝箱每15次通知一次
 }
 
 // prettier-ignore

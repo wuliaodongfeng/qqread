@@ -30,7 +30,7 @@ if (process.env.QQREAD_HEADER && process.env.QQREAD_HEADER.indexOf('#') > -1) {
 } else {
   headers = process.env.QQREAD_HEADER.split();
   };
-if (process.env.QQREAD_TIMEURL && process.env.QQREAD_TIMEURL.indexOf('#') > -1) {
+if (process.env.QQREAD_TIMEURL && process.env.QQREAD_TIMEURL.indexOf('\n') > -1) {
   timeurls = process.env.QQREAD_TIMEURL.split('\n');
 } else {
   timeurls = process.env.QQREAD_TIMEURL.split();

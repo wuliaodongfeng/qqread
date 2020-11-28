@@ -48,6 +48,7 @@ for (let index = 0; index < headers.length; index++) {
   cookiesArr.push(json_temp);
 }
 
+console.log(cookiesArr);
 
 var tz = "";
 let num = 0;

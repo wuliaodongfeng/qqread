@@ -7,10 +7,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '*/11 * * * *'
-  watch:
-    types: started
-  repository_dispatch:
-    types: qqreads
+  
 jobs:
   build:
 

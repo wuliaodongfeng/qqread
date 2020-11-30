@@ -552,7 +552,7 @@ function qqreadpick() {
 
 function showmsg() {
   //tz += `\n脚本执行：${new Date().toLocaleString()}\n\n`;
-  tz += `========= 脚本执行完毕时间-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`;
+  tz += `\n========= 脚本执行完毕时间-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`;
   if (notifyInterval == 1) $.msg(jsname, "", tz);
   //显示所有通知
   else if (notifyInterval == 2 && task.data.treasureBox.doneFlag==0) $.msg(jsname, "", tz);

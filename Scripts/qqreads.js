@@ -50,7 +50,7 @@ for (let index = 0; index < headers.length; index++) {
   cookiesArr.push(json_temp);
 }
 console.log(`============ 共 ${cookiesArr.length} 个企鹅读书账号  =============\n`);
-console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`);
+console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============`);
 
 
 var tz = "";

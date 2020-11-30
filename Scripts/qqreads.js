@@ -8,7 +8,7 @@ const jsname = "企鹅读书";
 const $ = Env(jsname);
 
 const logs = 0; //0为关闭日志，1为开启
-const notifyInterval = 2;
+const notifyInterval = 0;
 //0为关闭通知，1为所有通知，2为宝箱领取成功通知，3为宝箱每18次通知一次
 
 const dd = 1; //单次任务延迟,默认1秒
@@ -49,6 +49,8 @@ for (let index = 0; index < headers.length; index++) {
   json_temp.qqreadtimeheaderVal = timeheaders[index];
   cookiesArr.push(json_temp);
 }
+console.log(`============ 共 ${cookiesArr.length} 个企鹅读书账号  =============\n`);
+console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`);
 
 
 var tz = "";
@@ -69,13 +71,13 @@ function all() {
           //时长查询
           else if (i == 2) qqreadtask();
           //任务列表
-          else if (i == 3) qqreadsign();
+          else if (i == 3 && task.data.taskList[0].doneFlag == 0) qqreadsign();
           //金币签到
           else if (i == 4 && task.data.treasureBox.doneFlag == 0) qqreadbox();
           //宝箱
           else if (i == 5 && task.data.taskList[2].doneFlag == 0) qqreadssr1();
           //阅读金币1
-          else if (i == 6) qqreadtime();
+          else if (i == 6 && config.data.pageParams.todayReadSeconds / 3600 <= maxtime) qqreadtime();
           //上传时长
           else if (i == 7 && task.data.taskList[0].doneFlag == 0) qqreadtake();
           //阅豆签到
@@ -98,11 +100,12 @@ function all() {
           //周时长查询
           else if (i == 15) qqreadpick();
           //领周时长奖励
-          else if (i == 16) showmsg();
-          else if (i == 17 && num < cookiesArr.length - 1) {
+          else if (i == 16 && num < cookiesArr.length - 1) {
             num += 1;
             all();
-          } else if (i == 17 && num == cookiesArr.length - 1) {
+          } else if (i == 16 && num == cookiesArr.length - 1) {
+            showmsg();//通知
+            console.log(tz);
             $.done();
           }
         },
@@ -196,7 +199,7 @@ function qqreadinfo() {
       timeout: 60000,
     };
     $.get(toqqreadinfourl, (error, response, data) => {
-      console.log(data);
+      //console.log(data);
       if (logs) $.log(`${jsname}, 用户名: ${data}`);
       info = JSON.parse(data);
       tz += "【用户信息】:" + info.data.user.nickName + "\n";
@@ -260,7 +263,7 @@ function qqreadtime() {
       headers: JSON.parse(qqreadtimeheaderVal),
     };
 
-    if (config.data.pageParams.todayReadSeconds / 3600 <= maxtime) {
+    //if (config.data.pageParams.todayReadSeconds / 3600 <= maxtime) {
       $.get(toqqreadtimeurl, (error, response, data) => {
         if (logs) $.log(`${jsname}, 阅读时长: ${data}`);
         time = JSON.parse(data);
@@ -268,7 +271,7 @@ function qqreadtime() {
 
         resolve();
       });
-    }
+    //}
   });
 }
 
@@ -548,7 +551,8 @@ function qqreadpick() {
 }
 
 function showmsg() {
-  tz += `\n脚本执行：${new Date().toLocaleString()}\n\n`;
+  //tz += `\n脚本执行：${new Date().toLocaleString()}\n\n`;
+  tz += `\n\n========= 脚本执行时间(TM)：${new Date(new Date().getTime() + 0 * 60 * 60 * 1000).toLocaleString('zh', {hour12: false})} \n\n`;
   if (notifyInterval == 1) $.msg(jsname, "", tz);
   //显示所有通知
   else if (notifyInterval == 2 && task.data.treasureBox.doneFlag==0) $.msg(jsname, "", tz);
